@@ -13,6 +13,8 @@ public class Movimentacao {
 	private LocalDate dataCompra;
 	private Categoria tipoCategoria;
 	
+
+	
 	
 	public int getIdMovimentacao() {
 		return idMovimentacao;
