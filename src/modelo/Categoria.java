@@ -80,7 +80,7 @@ public class Categoria {
 	}
 
 	public void listarTodasCategorias(List<Categoria> listaCategoria) {
-		System.out.println("\n Categorias Incluidas");
+		System.out.println("\n Categorias Incluidas");		
 		listaCategoria.forEach(e -> System.out.println(e.getDescricaoCategoria()));
 
 	}
