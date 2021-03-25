@@ -2,6 +2,7 @@ package modelo;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Scanner;
 
 public class Movimentacao {
@@ -69,5 +70,7 @@ public class Movimentacao {
 	public void setTipoCategoria(Categoria tipoCategoria) {
 		this.tipoCategoria = tipoCategoria;
 	}
+
+	
 
 }

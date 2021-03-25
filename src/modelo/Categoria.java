@@ -2,22 +2,32 @@ package modelo;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.InputMismatchException;
 import java.util.List;
+import java.util.Optional;
+import java.util.OptionalDouble;
 import java.util.Scanner;
+import java.util.stream.Collectors;
+import java.util.stream.DoubleStream;
+import java.util.stream.Stream;
 
 public class Categoria {
 	private static int sequence = 0;
 	private int idCategoria;
 	private String descricaoCategoria;
 	private int tipoCategoria;
+	private double saldoCategoria;
+
 	private ArrayList<Movimentacao> movimentacoes;
 
-	public Categoria(String descricaoCategoria, int tipoCategoria) {
+	public Categoria(String descricaoCategoria, int tipoCategoria, double saldoCategoria) {
 
 		this.idCategoria = sequence++;
 		this.descricaoCategoria = descricaoCategoria;
 		this.tipoCategoria = tipoCategoria;
+		this.saldoCategoria = saldoCategoria;
+
 	}
 
 	public Categoria() {
@@ -47,6 +57,14 @@ public class Categoria {
 		this.tipoCategoria = tipoCategoria;
 	}
 
+	public double getSaldoCategoria() {
+		return saldoCategoria;
+	}
+
+	public void setSaldoCategoria(double saldoCategoria) {
+		this.saldoCategoria = saldoCategoria;
+	}
+
 	public ArrayList<Movimentacao> getMovimentacoes() {
 		return movimentacoes;
 	}
@@ -67,6 +85,9 @@ public class Categoria {
 			lerDados.nextLine();
 			if (novoCadastro.tipoCategoria == 0 || novoCadastro.tipoCategoria == 1) {
 				novoCadastro.idCategoria = sequence++;
+				System.out.println("Valor R$: ");
+				novoCadastro.saldoCategoria = lerDados.nextDouble();
+
 				listaCategoria.add(novoCadastro);
 
 				System.out.println(novoCadastro.descricaoCategoria + " incluído com sucesso! ");
@@ -80,22 +101,40 @@ public class Categoria {
 	}
 
 	public void listarTodasCategorias(List<Categoria> listaCategoria) {
-		System.out.println("\n Categorias Incluidas");		
-		listaCategoria.forEach(e -> System.out.println(e.getDescricaoCategoria()));
+		System.out.println("\n Categorias Incluidas");
+		listaCategoria.forEach(
+				e -> System.out.println(e.getDescricaoCategoria() + "\n" + "Valor R$ " + e.getSaldoCategoria()));
 
 	}
 
 	public void listarCategoriasTipoDespesa(List<Categoria> listaCategoria) {
 		System.out.println("\n Despesas");
-		listaCategoria.stream().filter(e -> e.getTipoCategoria() == 0).forEach(e -> System.out
-				.println(e.getDescricaoCategoria()));
+		listaCategoria.stream().filter(e -> e.getTipoCategoria() == 0)
+				.forEach(e -> System.out.println(e.getDescricaoCategoria()));
 	}
-	
+
 	public void listarCategoriasTipoRenda(List<Categoria> listaCategoria) {
 		System.out.println("\n Renda - Ganhos");
-		listaCategoria.stream().filter(e -> e.getTipoCategoria() == 1).forEach(e -> System.out
-				.println(e.getDescricaoCategoria()));
+		listaCategoria.stream().filter(e -> e.getTipoCategoria() == 1)
+				.forEach(e -> System.out.println(e.getDescricaoCategoria()));
 	}
-	
+
+	public void calcularSaldoTotalRenda(List<Categoria> listaCategoria) {
+		System.out.println("Renda Total");
+		Double total = listaCategoria.stream().filter(e -> e.getTipoCategoria() == 1)
+				.collect(Collectors.summingDouble(Categoria::getSaldoCategoria));
+
+		System.out.println("Total R$: " + total);
+
+	}
+
+	public void calcularSaldoTotalDespesa(List<Categoria> listaCategoria) {
+		System.out.println("Total de despesas");
+		Double total = listaCategoria.stream().filter(e -> e.getTipoCategoria() == 0)
+				.collect(Collectors.summingDouble(Categoria::getSaldoCategoria));
+
+		System.out.println("Total R$: " + total);
+
+	}
 
 }
