@@ -34,15 +34,13 @@ public class Main {
 
 		// Instanciando Movimentaçoes
 
-		
 		Movimentacao m1 = new Movimentacao();
-        m1.setValorMovimentacao(700);            
-        m1.setTipoCategoria(novacategoria1);      
-        
-		
+		m1.setValorMovimentacao(700);
+		m1.setTipoCategoria(novacategoria1);
+
 		Movimentacao m2 = new Movimentacao();
-        m2.setValorMovimentacao(500);            
-        m2.setTipoCategoria(novacategoria1);
+		m2.setValorMovimentacao(500);
+		m2.setTipoCategoria(novacategoria1);
 
 		int opcaoSwitch = 0;
 
@@ -77,7 +75,7 @@ public class Main {
 
 			case 5:
 
-				//movimentacao.registrarValor(categoria);
+				// movimentacao.registrarValor(categoria);
 				break;
 
 			default:
@@ -88,26 +86,6 @@ public class Main {
 				break;
 			}
 
-			/*
-			 * Categoria novacategoria1 = new Categoria("Aluguel", 0); Categoria
-			 * novacategoria2 = new Categoria("Luz", 0); Categoria novacategoria3 = new
-			 * Categoria("Condominio", 0); Categoria novacategoria4 = new
-			 * Categoria("Cartão de Crédito", 0); Categoria novacategoria5 = new
-			 * Categoria("Salário", 1); Categoria categoria = new Categoria();
-			 * 
-			 * 
-			 * List<Categoria> listaCategoria = Arrays.asList(novacategoria1,
-			 * novacategoria2, novacategoria3, novacategoria4, novacategoria5);
-			 * listaCategoria.stream().forEach(e ->
-			 * System.out.println(e.getDescricaoCategoria()));
-			 * System.out.println("\n ===Despesas==="); listaCategoria.stream().filter(e ->
-			 * e.getTipoCategoria() == 0).forEach( e -> System.out.println("\n Descrição " +
-			 * e.getDescricaoCategoria() + "\n Id no Sistema " + e.getIdCategoria()));
-			 * 
-			 * System.out.println("\n ===Renda==="); listaCategoria.stream().filter(e ->
-			 * e.getTipoCategoria() == 1).forEach( e -> System.out.println("\n" +
-			 * e.getDescricaoCategoria() + "\n Id no Sistema " + e.getIdCategoria()));
-			 */
 		} while (opcaoSwitch != 0);
 
 		lerDados.close();
