@@ -1,10 +1,8 @@
 package main;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
-
 import modelo.Categoria;
 import modelo.Movimentacao;
 
@@ -43,8 +41,8 @@ public class Main {
 		do {
 
 			System.out.println("============Menu============ \n Digite uma opção abaixo:"
-					+ " \n 1 - Cadastrar nova Categoria \n 2 - Listar as Categorias"
-					+ " \n 3 - Verificar Despesas \n 4 - Verificar Renda \n 5 - Consultar Renda Total  \n 6 - Consultar Total de Despesas \n 7 - Quitar Despesa \n 8 - Remover um tipo de Renda"
+					+ " \n 1 - Cadastrar nova Categoria no sistema \n 2 - Listar as Categorias"
+					+ " \n 3 - Listar as Despesas \n 4 - Listar a Renda \n 5 - Consultar Renda Total  \n 6 - Consultar Total de Despesas \n 7 - Quitar Despesa \n 8 - Remover um tipo de Renda"
 					+ "\n Para sair inclua 0");
 
 			opcaoSwitch = lerDados.nextInt();
@@ -90,7 +88,7 @@ public class Main {
 				if (opcaoSwitch != 0)
 					System.out.println("Digite uma opção válida!\n");
 				else
-					System.out.println("Encerrado \n");
+					System.out.println(" Encerrado o Programa. \n Obrigada por utilizar!!\n");
 				break;
 			}
 
