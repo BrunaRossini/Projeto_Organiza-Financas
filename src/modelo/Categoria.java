@@ -1,5 +1,6 @@
 package modelo;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -8,6 +9,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.OptionalDouble;
 import java.util.Scanner;
+import java.util.stream.BaseStream;
 import java.util.stream.Collectors;
 import java.util.stream.DoubleStream;
 import java.util.stream.Stream;
@@ -18,8 +20,9 @@ public class Categoria {
 	private String descricaoCategoria;
 	private int tipoCategoria;
 	private double saldoCategoria;
-
-	private ArrayList<Movimentacao> movimentacoes;
+	private LocalDate dataTransacao;
+	private int tipoTransacao;
+	private double valorTransacao;
 
 	public Categoria(String descricaoCategoria, int tipoCategoria, double saldoCategoria) {
 
@@ -63,14 +66,6 @@ public class Categoria {
 
 	public void setSaldoCategoria(double saldoCategoria) {
 		this.saldoCategoria = saldoCategoria;
-	}
-
-	public ArrayList<Movimentacao> getMovimentacoes() {
-		return movimentacoes;
-	}
-
-	public void setMovimentacoes(ArrayList<Movimentacao> movimentacoes) {
-		this.movimentacoes = movimentacoes;
 	}
 
 	public void cadastrarCategoria(List<Categoria> listaCategoria) throws RuntimeException {

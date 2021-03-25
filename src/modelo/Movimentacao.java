@@ -9,10 +9,7 @@ public class Movimentacao {
 
 	private int idMovimentacao;
 	private double valorMovimentacao;
-	private LocalDate dataPagamentoMovimentacao;
-	private LocalDate dataRecebimentoMovimentacao;
-	private LocalDateTime dataCadastroMovimentcao;
-	private LocalDate dataCompra;
+	private LocalDate dataCadastroMovimentcao;
 	private Categoria tipoCategoria;
 
 	public int getIdMovimentacao() {
@@ -31,36 +28,12 @@ public class Movimentacao {
 		this.valorMovimentacao = valorMovimentacao;
 	}
 
-	public LocalDate getDataPagamentoMovimentacao() {
-		return dataPagamentoMovimentacao;
-	}
-
-	public void setDataPagamentoMovimentacao(LocalDate dataPagamentoMovimentacao) {
-		this.dataPagamentoMovimentacao = dataPagamentoMovimentacao;
-	}
-
-	public LocalDate getDataRecebimentoMovimentacao() {
-		return dataRecebimentoMovimentacao;
-	}
-
-	public void setDataRecebimentoMovimentacao(LocalDate dataRecebimentoMovimentacao) {
-		this.dataRecebimentoMovimentacao = dataRecebimentoMovimentacao;
-	}
-
-	public LocalDateTime getDataCadastroMovimentcao() {
+	public LocalDate getDataCadastroMovimentcao() {
 		return dataCadastroMovimentcao;
 	}
 
-	public void setDataCadastroMovimentcao(LocalDateTime dataCadastroMovimentcao) {
-		this.dataCadastroMovimentcao = dataCadastroMovimentcao;
-	}
-
-	public LocalDate getDataCompra() {
-		return dataCompra;
-	}
-
-	public void setDataCompra(LocalDate dataCompra) {
-		this.dataCompra = dataCompra;
+	public void setDataCadastroMovimentcao(LocalDate localDate) {
+		this.dataCadastroMovimentcao = localDate;
 	}
 
 	public Categoria getTipoCategoria() {
@@ -71,6 +44,48 @@ public class Movimentacao {
 		this.tipoCategoria = tipoCategoria;
 	}
 
+	public void quitarUmaDespesa(List<Categoria> listaCategoria) {
+		Movimentacao quitar = new Movimentacao();
+		Scanner lerDados = new Scanner(System.in);
+		int buscarId;
+		try {
+			quitar.setDataCadastroMovimentcao(LocalDate.now());
+			System.out.println("Data do cadastro da quitacao: " + quitar.getDataCadastroMovimentcao());
+			listaCategoria.stream().filter(e -> e.getTipoCategoria() == 0).forEach(e -> System.out.println(
+					"ID: " + e.getIdCategoria() + " | " + e.getDescricaoCategoria() + " | " + e.getSaldoCategoria()));
+			System.out.println("Selecionar por id qual despesa quitar: ");
+			buscarId = lerDados.nextInt();
+			listaCategoria.removeIf(e -> e.getIdCategoria() == buscarId);
+			System.out.println("Removida a despesa solicitada!");
+		} catch (Exception e) {
+			System.err.println("Erro em Tipo da Categoria" + e.getMessage());
+		}
+
+	}
+	
+	public void removerUmaCategoriadeRenda(List<Categoria> listaCategoria) {
+		Movimentacao remover = new Movimentacao();
+		Scanner lerDados = new Scanner(System.in);
+		int buscarId;
+		try {
+			remover.setDataCadastroMovimentcao(LocalDate.now());
+			System.out.println("Data do cadastro da remoção: " + remover.getDataCadastroMovimentcao());
+			listaCategoria.stream().filter(e -> e.getTipoCategoria() == 1).forEach(e -> System.out.println(
+					"ID: " + e.getIdCategoria() + " | " + e.getDescricaoCategoria() + " | " + e.getSaldoCategoria()));
+			System.out.println("Selecionar por id qual renda remover: ");
+			buscarId = lerDados.nextInt();
+			listaCategoria.removeIf(e -> e.getIdCategoria() == buscarId);
+			System.out.println("Removida a despesa solicitada!");
+		} catch (Exception e) {
+			System.err.println("Erro em Tipo da Categoria" + e.getMessage());
+		}
+
+	}
+	
+	
+	
+	
+	
 	
 
 }

@@ -13,6 +13,7 @@ public class Main {
 	public static void main(String[] args) {
 
 		Categoria categoria = new Categoria();
+		Movimentacao movimentacao = new Movimentacao();
 		List<Categoria> listaCategoria = new ArrayList<>();
 
 		// instanciada algumas categorias para iniciar listar
@@ -32,29 +33,18 @@ public class Main {
 		listaCategoria.add(novacategoria6);
 		listaCategoria.add(novacategoria7);
 
-		// Instanciando Movimentaçoes
-
-		Movimentacao movimentacao = new Movimentacao();
-		Movimentacao m1 = new Movimentacao();
-		m1.setValorMovimentacao(700);
-		m1.setTipoCategoria(novacategoria1);
-
-		Movimentacao m2 = new Movimentacao();
-		m2.setValorMovimentacao(500);
-		m2.setTipoCategoria(novacategoria1);
-
 		int opcaoSwitch = 0;
 
 		Scanner lerDados = new Scanner(System.in);
-		                    
-	    System.out.println("\n=======Organiza Finanças - Controle sua vida financeira ======= \n "
-	    		+ "Criado por: Bruna Rossini \n Projeto integrador LP3A5 \n=============================================================== \n");
+
+		System.out.println("\n=======Organiza Finanças - Controle sua vida financeira ======= \n "
+				+ "Criado por: Bruna Rossini \n Projeto integrador LP3A5 \n=============================================================== \n");
 
 		do {
 
 			System.out.println("============Menu============ \n Digite uma opção abaixo:"
 					+ " \n 1 - Cadastrar nova Categoria \n 2 - Listar as Categorias"
-					+ " \n 3 - Verificar Despesas \n 4 - Verificar Renda \n 5 - Consultar Renda Total  \n 6 - Consultar Total de Despesas \n "
+					+ " \n 3 - Verificar Despesas \n 4 - Verificar Renda \n 5 - Consultar Renda Total  \n 6 - Consultar Total de Despesas \n 7 - Quitar Despesa \n 8 - Remover um tipo de Renda"
 					+ "\n Para sair inclua 0");
 
 			opcaoSwitch = lerDados.nextInt();
@@ -80,15 +70,21 @@ public class Main {
 
 			case 5:
 				categoria.calcularSaldoTotalRenda(listaCategoria);
-				
 
 				break;
-				
-			case 6:				
+
+			case 6:
 				categoria.calcularSaldoTotalDespesa(listaCategoria);
 
-				break;	
+				break;
+
+			case 7:
+				movimentacao.quitarUmaDespesa(listaCategoria);
+				break;
 				
+			case 8:
+				movimentacao.removerUmaCategoriadeRenda(listaCategoria);
+				break;
 
 			default:
 				if (opcaoSwitch != 0)
