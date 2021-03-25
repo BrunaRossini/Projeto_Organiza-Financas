@@ -77,7 +77,7 @@ public class Categoria {
 
 				System.out.println(novoCadastro.descricaoCategoria + " incluído com sucesso! ");
 			} else {
-				System.out.println("Inserir as opções solicitadas");
+				System.out.println("Por favor, escolher entre as opções solicitadas!");
 			}
 		} catch (InputMismatchException e) {
 			System.err.println("Erro em Tipo da Categoria");
