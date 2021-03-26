@@ -14,23 +14,6 @@ public class Main {
 		Movimentacao movimentacao = new Movimentacao();
 		List<Categoria> listaCategoria = new ArrayList<>();
 
-		// instanciada algumas categorias para iniciar listar
-		Categoria novacategoria1 = new Categoria("Aluguel", 0, 1200);
-		Categoria novacategoria2 = new Categoria("Luz", 0, 250);
-		Categoria novacategoria3 = new Categoria("Condominio", 0, 100);
-		Categoria novacategoria4 = new Categoria("Cartão de Crédito", 0, 800);
-		Categoria novacategoria5 = new Categoria("Salário", 1, 2680);
-		Categoria novacategoria6 = new Categoria("Poupança", 1, 790.85);
-		Categoria novacategoria7 = new Categoria("Investimentos", 1, 650.30);
-
-		listaCategoria.add(novacategoria1);
-		listaCategoria.add(novacategoria2);
-		listaCategoria.add(novacategoria3);
-		listaCategoria.add(novacategoria4);
-		listaCategoria.add(novacategoria5);
-		listaCategoria.add(novacategoria6);
-		listaCategoria.add(novacategoria7);
-
 		int opcaoSwitch = 0;
 
 		Scanner lerDados = new Scanner(System.in);
@@ -42,7 +25,7 @@ public class Main {
 
 			System.out.println("============Menu============ \n Digite uma opção abaixo:"
 					+ " \n 1 - Cadastrar nova Categoria no sistema \n 2 - Listar as Categorias"
-					+ " \n 3 - Listar as Despesas \n 4 - Listar a Renda \n 5 - Consultar Renda Total  \n 6 - Consultar Total de Despesas \n 7 - Quitar Despesa \n 8 - Remover um tipo de Renda"
+					+ " \n 3 - Listar as Despesas \n 4 - Listar a Renda \n 5 - Consultar Renda Total  \n 6 - Consultar Total de Despesas \n 7 - Quitar Despesa"
 					+ "\n Para sair inclua 0");
 
 			opcaoSwitch = lerDados.nextInt();
@@ -80,15 +63,16 @@ public class Main {
 				movimentacao.quitarUmaDespesa(listaCategoria);
 				break;
 				
-			case 8:
-				movimentacao.removerUmaCategoriadeRenda(listaCategoria);
-				break;
+				//Removido por inconsistencia nas validações
+			/*case 8:
+			//	movimentacao.removerUmaCategoriadeRenda(listaCategoria);
+				break;*/
 
 			default:
 				if (opcaoSwitch != 0)
 					System.out.println("Digite uma opção válida!\n");
 				else
-					System.out.println(" Encerrado o Programa. \n Obrigada por utilizar!!\n");
+					System.out.println(" Encerrado o Organiza Finanças, obrigada por utilizar!!\n");
 				break;
 			}
 

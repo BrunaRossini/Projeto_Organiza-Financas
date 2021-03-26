@@ -79,10 +79,13 @@ public class Categoria {
 			} else {
 				System.out.println("Por favor, escolher entre as opções solicitadas!");
 			}
-		} catch (InputMismatchException e) {
-			System.err.println("Erro em Tipo da Categoria");
-			throw new InputMismatchException("Tipo inserido incorretamente.");
-		}
+		} catch (InputMismatchException e) {		
+			System.err.println("Erro: Dado incompátivel inserido!");
+			throw new InputMismatchException("Tipo do argumento não foi inserido corretamente.");
+		} 
+		finally {
+			System.out.println("Encerrada a inclusão de uma nova categoria em Organiza Finança!");} 
+		
 	}
 
 	public void listarTodasCategorias(List<Categoria> listaCategoria) {
