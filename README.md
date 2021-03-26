@@ -4,7 +4,7 @@ LP3A5 - Protejo Integrador utilizando Java
 ## 📚 Sobre 
 Sistema para controle de financiamento pessoal. 
 
-Desenvolvido utilizando programação funcional, sistema simples para validação dos métodos. 
+Sistema simples para validação dos métodos, aplicando funções lambda aprendidas durante a matéria LP3A5 com o professor Johnata Santicioli.
 
 
 ## 📚 Funcionalidades 
